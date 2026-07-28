@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vimal Yadav — Data Analyst & Aspiring Data Scientist</title>
+<meta name="description" content="Portfolio of Vimal Yadav — Data Analyst specializing in Python, SQL, Power BI, and Machine Learning. Building data-driven products and business intelligence solutions." />
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<meta name="theme-color" content="#05070d">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vimal Yadav — Data Analyst & Aspiring Data Scientist">
+<meta property="og:description" content="Python, SQL, Power BI, and Machine Learning. Explore projects, dashboards, and certifications.">
+<meta property="og:image" content="og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vimal Yadav — Data Analyst & Aspiring Data Scientist">
+<meta name="twitter:description" content="Python, SQL, Power BI, and Machine Learning. Explore projects, dashboards, and certifications.">
+<meta name="twitter:image" content="og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600,700,800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= SCROLL PROGRESS ================= -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+
+<!-- ================= LOADER ================= -->
+<div class="loader" id="loader">
+  <div class="loader-mark">
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+      <rect x="4" y="30" width="8" height="18" rx="2" class="bar bar-1"/>
+      <rect x="18" y="20" width="8" height="28" rx="2" class="bar bar-2"/>
+      <rect x="32" y="10" width="8" height="38" rx="2" class="bar bar-3"/>
+      <rect x="46" y="24" width="6" height="24" rx="2" class="bar bar-4"/>
+    </svg>
+  </div>
+  <div class="loader-track"><div class="loader-fill" id="loaderFill"></div></div>
+  <span class="loader-label">Loading portfolio</span>
+</div>
+
+<!-- ================= BACKGROUND LAYERS ================= -->
+<div class="bg-fixed">
+  <canvas id="grid-canvas"></canvas>
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">VY<span class="dot">.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <span class="nav-pill" id="navPill"></span>
+      <li><a href="#home" data-nav="home">Home</a></li>
+      <li><a href="#about" data-nav="about">About</a></li>
+      <li><a href="#skills" data-nav="skills">Skills</a></li>
+      <li><a href="#experience" data-nav="experience">Experience</a></li>
+      <li><a href="#projects" data-nav="projects">Projects</a></li>
+      <li><a href="#certifications" data-nav="certifications">Certifications</a></li>
+      <li><a href="#contact" data-nav="contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="resume.pdf" download class="btn btn-ghost" id="resumeBtn">Resume</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-main">
+      <div class="hero-line" id="heroLine"></div>
+      <h1 class="hero-name" id="heroName">
+        <span class="word" data-word="VIMAL">VIMAL</span>
+        <span class="word" data-word="YADAV">YADAV</span>
+      </h1>
+      <p class="hero-role" id="heroRole">Aspiring Data Analyst</p>
+      <p class="hero-type" id="heroType"><span id="typeText"></span><span class="caret">|</span></p>
+
+      <div class="hero-cta" id="heroCta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-side">
+      <div class="hero-status-card">
+        <div class="hero-status-row"><span class="hsc-dot"></span>Available for opportunities</div>
+        <div class="hero-status-row muted">Lucknow, India · IST</div>
+        <div class="hero-status-row muted">B.C.A. Data Science &amp; AI · 2023–26</div>
+      </div>
+      <div class="hero-stats" id="heroStats">
+        <div class="hero-stat"><span class="hs-num" data-target="4">0</span><span class="hs-label">Projects</span></div>
+        <div class="hero-stat"><span class="hs-num" data-target="6">0</span><span class="hs-label">Certifications</span></div>
+        <div class="hero-stat"><span class="hs-num" data-target="10000" data-suffix="+">0</span><span class="hs-label">Rows Analyzed</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" id="scrollCue"><span></span>Scroll</div>
+</section>
+
+<!-- ================= SKILLS MARQUEE ================= -->
+<div class="marquee-strip">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-group">
+      <span class="marquee-item">Python</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">SQL</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Pandas</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">NumPy</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">R</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Power BI</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Matplotlib</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Seaborn</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Excel</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">IBM Cognos</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Scikit-learn</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Git</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">GitHub</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Jupyter</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Streamlit</span><span class="marquee-sep">•</span>
+    </div>
+    <div class="marquee-group" aria-hidden="true">
+      <span class="marquee-item">Python</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">SQL</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Pandas</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">NumPy</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">R</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Power BI</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Matplotlib</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Seaborn</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Excel</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">IBM Cognos</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Scikit-learn</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Git</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">GitHub</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Jupyter</span><span class="marquee-sep">•</span>
+      <span class="marquee-item">Streamlit</span><span class="marquee-sep">•</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="section-inner about-grid">
+    <div class="reveal-flip about-visual spotlight">
+      <div class="avatar-card">
+        <div class="avatar-window">
+          <div class="win-dots"><span></span><span></span><span></span></div>
+          <span class="win-title">profile.py</span>
+        </div>
+        <div class="avatar-circle"><img src="profile.jpg" alt="Vimal Yadav" class="avatar-img"></div>
+        <div class="avatar-badge">Available for opportunities</div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-head reveal">
+        <span class="section-index">01</span>
+        <div class="section-head-text"><p class="eyebrow">About</p><h2 class="section-title">I turn raw data into decisions.</h2></div>
+      </div>
+      <p class="reveal about-text">
+        I'm Vimal, a Data Analyst based in Lucknow, India, currently completing my B.C.A. in Data Science &amp; AI
+        at Shri Ramswaroop Memorial University. I work across the full analytics lifecycle — from cleaning messy
+        datasets and building dashboards, to training machine learning models that answer real business questions.
+      </p>
+      <p class="reveal about-text">
+        My Power BI internship at Cognifyz Technologies sharpened how I translate data into stories executives
+        act on. Outside of client work, I build my own tools — including a live trading analytics platform and
+        an anomaly-detection system — to keep learning at the edge of what's possible with data.
+      </p>
+      <div class="counter-grid">
+        <div class="counter-card reveal-pop"><span class="counter-num" data-target="4">0</span><span class="counter-label">Projects Shipped</span></div>
+        <div class="counter-card reveal-pop"><span class="counter-num" data-target="5">0</span><span class="counter-label">Dashboards Built</span></div>
+        <div class="counter-card reveal-pop"><span class="counter-num" data-target="6">0</span><span class="counter-label">Certifications</span></div>
+        <div class="counter-card reveal-pop"><span class="counter-num" data-target="3">0</span><span class="counter-label">ML Models</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="section" id="skills">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <span class="section-index">02</span>
+      <div class="section-head-text"><p class="eyebrow">What I Work With</p><h2 class="section-title">Skills &amp; Tools</h2></div>
+    </div>
+    <div class="skills-grid" id="skillsGrid">
+
+      <div class="skill-card reveal-pop flip-card" data-cat="programming">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="flip-affordance">↻</span>
+            <div class="skill-head"><span class="skill-icon">⌘</span><h3>Programming</h3></div>
+            <div class="chip-row">
+              <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">R</span>
+              <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scikit-learn</span>
+            </div>
+            <span class="flip-hint">Hover to see comfort level ↻</span>
+          </div>
+          <div class="flip-back">
+            <h4>Comfort Level</h4>
+            <div class="prof-row"><div class="prof-row-head"><span>Python</span><span class="prof-pct" data-pct="90">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:90%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>SQL</span><span class="prof-pct" data-pct="85">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:85%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>Pandas / NumPy</span><span class="prof-pct" data-pct="82">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:82%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>R</span><span class="prof-pct" data-pct="55">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:55%"></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal-pop flip-card" data-cat="viz">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="flip-affordance">↻</span>
+            <div class="skill-head"><span class="skill-icon">▤</span><h3>Visualization</h3></div>
+            <div class="chip-row">
+              <span class="chip">Power BI</span><span class="chip">Excel</span><span class="chip">IBM Cognos</span>
+              <span class="chip">Plotly</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span>
+            </div>
+            <span class="flip-hint">Hover to see comfort level ↻</span>
+          </div>
+          <div class="flip-back">
+            <h4>Comfort Level</h4>
+            <div class="prof-row"><div class="prof-row-head"><span>Power BI</span><span class="prof-pct" data-pct="88">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:88%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>Excel</span><span class="prof-pct" data-pct="85">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:85%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>Matplotlib / Seaborn</span><span class="prof-pct" data-pct="78">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:78%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>IBM Cognos</span><span class="prof-pct" data-pct="65">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:65%"></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal-pop flip-card" data-cat="ml">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="flip-affordance">↻</span>
+            <div class="skill-head"><span class="skill-icon">◈</span><h3>Machine Learning</h3></div>
+            <div class="chip-row">
+              <span class="chip">Regression</span><span class="chip">Classification</span><span class="chip">EDA &amp; Feature Engineering</span>
+              <span class="chip">Model Evaluation</span><span class="chip">TensorFlow</span>
+            </div>
+            <span class="flip-hint">Hover to see comfort level ↻</span>
+          </div>
+          <div class="flip-back">
+            <h4>Comfort Level</h4>
+            <div class="prof-row"><div class="prof-row-head"><span>EDA &amp; Feature Eng.</span><span class="prof-pct" data-pct="80">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:80%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>Regression / Classification</span><span class="prof-pct" data-pct="75">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:75%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>Model Evaluation</span><span class="prof-pct" data-pct="72">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:72%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>TensorFlow</span><span class="prof-pct" data-pct="50">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:50%"></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal-pop flip-card" data-cat="tools">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <span class="flip-affordance">↻</span>
+            <div class="skill-head"><span class="skill-icon">⚙</span><h3>Tools</h3></div>
+            <div class="chip-row">
+              <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Jupyter</span>
+              <span class="chip">Streamlit</span><span class="chip">VS Code</span>
+            </div>
+            <span class="flip-hint">Hover to see comfort level ↻</span>
+          </div>
+          <div class="flip-back">
+            <h4>Comfort Level</h4>
+            <div class="prof-row"><div class="prof-row-head"><span>Jupyter Notebook</span><span class="prof-pct" data-pct="90">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:90%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>Git / GitHub</span><span class="prof-pct" data-pct="78">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:78%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>Streamlit</span><span class="prof-pct" data-pct="75">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:75%"></div></div></div>
+            <div class="prof-row"><div class="prof-row-head"><span>VS Code</span><span class="prof-pct" data-pct="85">0%</span></div><div class="prof-track"><div class="prof-fill" style="--w:85%"></div></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="section" id="experience">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <span class="section-index">03</span>
+      <div class="section-head-text"><p class="eyebrow">Career So Far</p><h2 class="section-title">Experience</h2></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-head">
+            <div>
+              <h3>Power BI Intern</h3>
+              <p class="tl-org">Cognifyz Technologies</p>
+            </div>
+            <span class="tl-date">Jun 2025 – Aug 2025</span>
+          </div>
+          <ul class="tl-list">
+            <li>Developed 5+ interactive Power BI dashboards for stakeholder reporting</li>
+            <li>Worked with datasets spanning 10,000+ rows across multiple business domains</li>
+            <li>Performed end-to-end data cleaning and transformation before analysis</li>
+            <li>Delivered business insights that informed reporting decisions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="section" id="projects">
+  <div class="section-inner">
+    <div class="projects-head reveal">
+      <div>
+        <p class="eyebrow">04 · Featured Work</p>
+        <h2 class="section-title">Projects, not exercises</h2>
+      </div>
+      <p class="projects-sub">Each one shipped with a real problem, a working pipeline, and a measurable outcome.</p>
+    </div>
+
+    <div class="project-grid" id="projectGrid">
+
+      <article class="pc reveal-left" data-project="guardian">
+        <div class="pc-illustration">
+          <span class="pc-tag">Project 01</span>
+          <svg viewBox="0 0 400 160" class="pc-art">
+            <line x1="0" y1="140" x2="400" y2="140" class="pc-baseline"/>
+            <circle cx="150" cy="90" r="9" class="pc-dot-anomaly"/>
+            <circle cx="230" cy="75" r="9" class="pc-dot-anomaly"/>
+            <circle cx="90" cy="120" r="4" class="pc-dot-normal"/>
+            <circle cx="120" cy="130" r="4" class="pc-dot-normal"/>
+            <circle cx="160" cy="118" r="4" class="pc-dot-normal"/>
+            <circle cx="195" cy="128" r="4" class="pc-dot-normal"/>
+            <circle cx="225" cy="122" r="4" class="pc-dot-normal"/>
+            <circle cx="255" cy="132" r="4" class="pc-dot-normal"/>
+            <circle cx="280" cy="119" r="4" class="pc-dot-normal"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <h3>Data Guardian AI</h3>
+          <p class="pc-sub">Intelligent data auditing &amp; quality-assurance system</p>
+          <div class="pc-stats">
+            <div class="pc-stat"><span class="pc-stat-val">Isolation Forest</span><span class="pc-stat-label">Detection Method</span></div>
+            <div class="pc-stat"><span class="pc-stat-val">PCA</span><span class="pc-stat-label">Dimensionality Reduction</span></div>
+          </div>
+          <div class="chip-row small">
+            <span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">Scikit-learn</span><span class="chip">Plotly</span><span class="chip">PCA</span><span class="chip">Isolation Forest</span>
+          </div>
+          <button class="pc-accordion-trigger" data-accordion="guardian">
+            <span>Case study</span><span class="pc-chevron">⌄</span>
+          </button>
+          <div class="pc-accordion-panel" id="panel-guardian">
+            <div class="pc-accordion-inner">
+              <h4>Key Features</h4>
+              <ul>
+                <li>Ensemble anomaly detection combining Isolation Forest, Local Outlier Factor, and Z-Score methods</li>
+                <li>PCA-based dimensionality reduction to uncover hidden patterns and outliers</li>
+                <li>Data profiling, missing-value analysis, and multi-method correlation analysis</li>
+                <li>Interactive Streamlit + Plotly dashboards visualizing data-quality metrics and anomaly distributions</li>
+                <li>Automated recommendation engine generating dataset health scores and cleaning-script suggestions</li>
+              </ul>
+              <h4>Result</h4>
+              <p>Produces a repeatable dataset health score and flags anomalies automatically — cutting down manual data-audit time before a dataset ever reaches a dashboard or model.</p>
+            </div>
+          </div>
+          <div class="pc-divider"></div>
+          <div class="pc-links">
+            <a href="https://github.com/vimal9125" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" class="gh-icon"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pc pc-accent reveal-right" data-project="trade">
+        <div class="pc-illustration">
+          <span class="pc-tag">Project 02</span>
+          <svg viewBox="0 0 400 160" class="pc-art" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="tradeGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="var(--accent-2)" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="var(--accent-2)" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <polygon points="0,110 40,130 80,90 120,105 160,60 200,80 240,45 280,65 320,30 360,45 400,15 400,160 0,160" fill="url(#tradeGrad)"/>
+            <polyline points="0,110 40,130 80,90 120,105 160,60 200,80 240,45 280,65 320,30 360,45 400,15" class="pc-line-trade"/>
+            <circle cx="0" cy="110" r="6" class="pc-dot-start"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <h3>MyTradeVision</h3>
+          <p class="pc-sub">AI-based personal trading analytics platform</p>
+          <div class="pc-stats">
+            <div class="pc-stat"><span class="pc-stat-val">500+</span><span class="pc-stat-label">Trades Analyzed</span></div>
+            <div class="pc-stat"><span class="pc-stat-val">4</span><span class="pc-stat-label">Core Metrics Tracked</span></div>
+          </div>
+          <div class="chip-row small">
+            <span class="chip">Python</span><span class="chip">Data Analysis</span><span class="chip">Statistical Evaluation</span><span class="chip">Dashboards</span>
+          </div>
+          <button class="pc-accordion-trigger" data-accordion="trade">
+            <span>Case study</span><span class="pc-chevron">⌄</span>
+          </button>
+          <div class="pc-accordion-panel" id="panel-trade">
+            <div class="pc-accordion-inner">
+              <h4>Key Features</h4>
+              <ul>
+                <li>Tracks 500+ trade records spanning multiple trading strategies</li>
+                <li>Statistical evaluation to surface performance trends, risk patterns, and behavioral insights</li>
+                <li>Interactive dashboards for win rate, drawdown, profitability, and risk-reward ratio</li>
+                <li>Deployed and live at mytradevision.in</li>
+              </ul>
+              <h4>Result</h4>
+              <p>A live, publicly accessible product — demonstrates end-to-end deployment of a real data application, not just a notebook.</p>
+            </div>
+          </div>
+          <div class="pc-divider"></div>
+          <div class="pc-links">
+            <a href="https://www.mytradevision.in" target="_blank" rel="noopener" class="pc-link-primary">↗ Live Demo</a>
+            <a href="https://github.com/vimal9125" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" class="gh-icon"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pc reveal-left" data-project="dashboard">
+        <div class="pc-illustration">
+          <span class="pc-tag">Project 03</span>
+          <svg viewBox="0 0 400 160" class="pc-art">
+            <rect x="30" y="80" width="30" height="60" rx="4" class="pc-bar"/>
+            <rect x="80" y="55" width="30" height="85" rx="4" class="pc-bar"/>
+            <rect x="130" y="95" width="30" height="45" rx="4" class="pc-bar"/>
+            <rect x="180" y="65" width="30" height="75" rx="4" class="pc-bar"/>
+            <rect x="230" y="20" width="30" height="120" rx="4" class="pc-bar pc-bar-highlight"/>
+            <rect x="280" y="90" width="30" height="50" rx="4" class="pc-bar"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <h3>Power BI Dashboard Development</h3>
+          <p class="pc-sub">Interactive KPI &amp; operational-performance dashboards</p>
+          <div class="pc-stats">
+            <div class="pc-stat"><span class="pc-stat-val">KPI &amp; operations tracking</span><span class="pc-stat-label">Focus</span></div>
+            <div class="pc-stat"><span class="pc-stat-val">Power BI</span><span class="pc-stat-label">Tooling</span></div>
+          </div>
+          <div class="chip-row small">
+            <span class="chip">Power BI</span><span class="chip">Data Modeling</span><span class="chip">Data Cleaning</span><span class="chip">DAX</span>
+          </div>
+          <button class="pc-accordion-trigger" data-accordion="dashboard">
+            <span>Case study</span><span class="pc-chevron">⌄</span>
+          </button>
+          <div class="pc-accordion-panel" id="panel-dashboard">
+            <div class="pc-accordion-inner">
+              <h4>Key Features</h4>
+              <ul>
+                <li>Data cleaning, transformation, and modeling to improve reporting accuracy</li>
+                <li>DAX measures for KPI tracking and operational trend analysis</li>
+                <li>Interactive filters and drill-downs built for non-technical stakeholders</li>
+                <li>Built during Power BI internship at Cognifyz Technologies on datasets of 10,000+ rows</li>
+              </ul>
+              <h4>Result</h4>
+              <p>Delivered dashboards used for ongoing business reporting, translating raw operational data into decisions stakeholders could act on directly.</p>
+            </div>
+          </div>
+          <div class="pc-divider"></div>
+          <div class="pc-links">
+            <a href="https://github.com/vimal9125" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" class="gh-icon"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pc pc-accent reveal-right" data-project="churn">
+        <div class="pc-illustration">
+          <span class="pc-tag">Project 04</span>
+          <div class="pc-donut-wrap">
+            <svg viewBox="0 0 120 120" class="pc-donut">
+              <circle cx="60" cy="60" r="48" class="pc-donut-track"/>
+              <circle cx="60" cy="60" r="48" class="pc-donut-retained"/>
+              <circle cx="60" cy="60" r="48" class="pc-donut-risk"/>
+              <text x="60" y="66" text-anchor="middle" class="pc-donut-text">risk</text>
+            </svg>
+            <div class="pc-donut-legend">
+              <span><i class="dot-risk"></i>high-risk</span>
+              <span><i class="dot-retained"></i>retained</span>
+            </div>
+          </div>
+        </div>
+        <div class="pc-body">
+          <h3>Customer Churn Prediction</h3>
+          <p class="pc-sub">End-to-end ML model for churn behavior</p>
+          <div class="pc-stats">
+            <div class="pc-stat"><span class="pc-stat-val">End-to-end ML</span><span class="pc-stat-label">Pipeline</span></div>
+            <div class="pc-stat"><span class="pc-stat-val">High-risk customer list</span><span class="pc-stat-label">Output</span></div>
+          </div>
+          <div class="chip-row small">
+            <span class="chip">Python</span><span class="chip">Scikit-learn</span><span class="chip">EDA</span><span class="chip">Feature Engineering</span>
+          </div>
+          <button class="pc-accordion-trigger" data-accordion="churn">
+            <span>Case study</span><span class="pc-chevron">⌄</span>
+          </button>
+          <div class="pc-accordion-panel" id="panel-churn">
+            <div class="pc-accordion-inner">
+              <h4>Key Features</h4>
+              <ul>
+                <li>Data preprocessing and feature engineering from raw customer and usage data</li>
+                <li>Exploratory data analysis (EDA) to identify key churn drivers</li>
+                <li>Logistic regression classification model with structured training and evaluation</li>
+                <li>Insight generation to identify high-risk customers for retention outreach</li>
+              </ul>
+              <h4>Result</h4>
+              <p>Produced a ranked, actionable list of high-risk customers along with the top factors driving churn.</p>
+            </div>
+          </div>
+          <div class="pc-divider"></div>
+          <div class="pc-links">
+            <a href="https://github.com/vimal9125" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" class="gh-icon"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>GitHub</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= ANALYTICS WORKFLOW ================= -->
+<section class="section" id="workflow">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <span class="section-index">05</span>
+      <div class="section-head-text"><p class="eyebrow">Methodology · Click a step</p><h2 class="section-title">My Analytics Workflow</h2></div>
+    </div>
+    <div class="pipeline" id="pipeline">
+      <div class="pipe-step reveal-pop active" data-step="1" data-detail="Every project starts by pinning down what the business actually needs to decide — before a single row of data is touched.">
+        <span class="pipe-num">01</span><span class="pipe-label">Business Problem</span>
+      </div>
+      <div class="pipe-step reveal-pop" data-step="2" data-detail="Pulling data together from the relevant sources — databases, spreadsheets, APIs, or exports — into one working set.">
+        <span class="pipe-num">02</span><span class="pipe-label">Collect Data</span>
+      </div>
+      <div class="pipe-step reveal-pop" data-step="3" data-detail="Handling missing values, duplicates, and inconsistent formats so the analysis downstream can actually be trusted.">
+        <span class="pipe-num">03</span><span class="pipe-label">Clean Data</span>
+      </div>
+      <div class="pipe-step reveal-pop" data-step="4" data-detail="Exploring distributions, correlations, and outliers to understand what the data is really saying before modeling anything.">
+        <span class="pipe-num">04</span><span class="pipe-label">EDA</span>
+      </div>
+      <div class="pipe-step reveal-pop" data-step="5" data-detail="Engineering the variables that actually matter — transforming raw fields into signals a model (or a chart) can use.">
+        <span class="pipe-num">05</span><span class="pipe-label">Feature Engineering</span>
+      </div>
+      <div class="pipe-step reveal-pop" data-step="6" data-detail="Turning numbers into charts and dashboards that make patterns obvious at a glance, for technical and non-technical audiences alike.">
+        <span class="pipe-num">06</span><span class="pipe-label">Visualization</span>
+      </div>
+      <div class="pipe-step reveal-pop" data-step="7" data-detail="Training and evaluating models — regression, classification, or clustering — depending on what the problem actually calls for.">
+        <span class="pipe-num">07</span><span class="pipe-label">Machine Learning</span>
+      </div>
+      <div class="pipe-step reveal-pop" data-step="8" data-detail="Translating model output and analysis into plain-language findings that someone outside the data team can act on.">
+        <span class="pipe-num">08</span><span class="pipe-label">Insights</span>
+      </div>
+      <div class="pipe-step reveal-pop" data-step="9" data-detail="Closing the loop — insights feed directly into a real business decision, which is the entire point of doing the analysis.">
+        <span class="pipe-num">09</span><span class="pipe-label">Business Decision</span>
+      </div>
+    </div>
+    <div class="pipe-detail reveal" id="pipeDetail">
+      <span class="pipe-detail-num" id="pipeDetailNum">01</span>
+      <p id="pipeDetailText">Every project starts by pinning down what the business actually needs to decide — before a single row of data is touched.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DASHBOARD SHOWCASE ================= -->
+<section class="section" id="dashboards">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <span class="section-index">06</span>
+      <div class="section-head-text"><p class="eyebrow">Gallery</p><h2 class="section-title">Dashboard Showcase</h2></div>
+    </div>
+    <div class="dash-grid">
+      <div class="dash-card reveal-zoom spotlight tilt">
+        <div class="dash-thumb grad-1"><svg viewBox="0 0 200 100"><rect x="10" y="55" width="18" height="35" /><rect x="36" y="35" width="18" height="55" /><rect x="62" y="45" width="18" height="45" /><rect x="88" y="20" width="18" height="70" /><rect x="114" y="50" width="18" height="40" /></svg></div>
+        <h4>Power BI Dashboard</h4>
+        <p>Sales &amp; operations KPI tracking</p>
+      </div>
+      <div class="dash-card reveal-zoom spotlight tilt">
+        <div class="dash-thumb grad-2"><svg viewBox="0 0 200 100"><polyline points="0,70 25,50 50,60 75,30 100,45 125,20 150,35 175,15 200,25" /></svg></div>
+        <h4>Trading Dashboard</h4>
+        <p>Live performance &amp; risk analysis</p>
+      </div>
+      <div class="dash-card reveal-zoom spotlight tilt">
+        <div class="dash-thumb grad-1"><svg viewBox="0 0 200 100"><circle cx="60" cy="50" r="35" /><circle cx="140" cy="50" r="22" /></svg></div>
+        <h4>Customer Churn Dashboard</h4>
+        <p>Retention risk segmentation</p>
+      </div>
+      <div class="dash-card reveal-zoom spotlight tilt">
+        <div class="dash-thumb grad-2"><svg viewBox="0 0 200 100"><rect x="10" y="10" width="80" height="35" /><rect x="100" y="10" width="90" height="35" /><rect x="10" y="55" width="180" height="35" /></svg></div>
+        <h4>Analytics Dashboard</h4>
+        <p>Cross-functional business metrics</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section class="section" id="certifications">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <span class="section-index">07</span>
+      <div class="section-head-text"><p class="eyebrow">Credentials</p><h2 class="section-title">Certifications</h2></div>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card reveal-pop spotlight"><span class="cert-icon">IBM</span><div><h4>Watsonx Orchestrate</h4><p>IBM</p></div></div>
+      <div class="cert-card reveal-pop spotlight"><span class="cert-icon">IBM</span><div><h4>Machine Learning</h4><p>IBM</p></div></div>
+      <div class="cert-card reveal-pop spotlight"><span class="cert-icon">IBM</span><div><h4>Data Science &amp; AI</h4><p>IBM</p></div></div>
+      <div class="cert-card reveal-pop spotlight"><span class="cert-icon">PwC</span><div><h4>Power BI</h4><p>PwC</p></div></div>
+      <div class="cert-card reveal-pop spotlight"><span class="cert-icon">BCG</span><div><h4>Gen AI</h4><p>BCGx</p></div></div>
+      <div class="cert-card reveal-pop spotlight"><span class="cert-icon">TATA</span><div><h4>Data Visualization</h4><p>TATA</p></div></div>
+    </div>
+    <button class="btn btn-outline gh-link reveal center" id="viewAllCertsBtn" style="margin-top:32px;">View All Certifications (21)</button>
+  </div>
+</section>
+
+<!-- ================= CERT GALLERY MODAL ================= -->
+<div class="modal-overlay" id="certOverlay">
+  <div class="modal cert-modal" id="certModal">
+    <button class="modal-close" id="certModalClose">✕</button>
+    <h3>All Certifications</h3>
+    <span class="m-tag">21 certificates &amp; badges — click any to view full size</span>
+    <div class="cert-filters" id="certFilters">
+      <button class="cert-filter-btn active" data-filter="All">All</button>
+      <button class="cert-filter-btn" data-filter="IBM">IBM</button>
+      <button class="cert-filter-btn" data-filter="AI & ML">AI &amp; ML</button>
+      <button class="cert-filter-btn" data-filter="Data Viz & BI">Data Viz &amp; BI</button>
+      <button class="cert-filter-btn" data-filter="Other">Other</button>
+    </div>
+    <div class="cert-gallery" id="certGallery"></div>
+  </div>
+</div>
+
+<!-- ================= CERT VIEWER MODAL ================= -->
+<div class="modal-overlay" id="certViewerOverlay">
+  <div class="cert-viewer" id="certViewer">
+    <button class="modal-close" id="certViewerClose">✕</button>
+    <div class="cert-viewer-body" id="certViewerBody"></div>
+    <div class="cert-viewer-actions">
+      <span id="certViewerTitle"></span>
+      <a href="#" id="certDownloadLink" class="btn btn-sm btn-outline" download>Download</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= GITHUB ================= -->
+<section class="section" id="github">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <span class="section-index">08</span>
+      <div class="section-head-text"><p class="eyebrow">Open Source</p><h2 class="section-title">GitHub Activity</h2></div>
+    </div>
+    <div class="gh-grid">
+      <div class="gh-card reveal-left spotlight">
+        <div class="gh-card-head"><h4>Most Used Languages</h4><span class="gh-live" id="ghLangStatus">live</span></div>
+        <div class="lang-bar" id="langBar">
+          <span class="lang-seg" style="width:45%;background:var(--accent-1)" title="Python 45%"></span>
+          <span class="lang-seg" style="width:25%;background:var(--accent-2)" title="SQL 25%"></span>
+          <span class="lang-seg" style="width:18%;background:#818cf8" title="Jupyter 18%"></span>
+          <span class="lang-seg" style="width:12%;background:#475569" title="Other 12%"></span>
+        </div>
+        <div class="lang-legend" id="langLegend">
+          <span><i style="background:var(--accent-1)"></i>Python</span>
+          <span><i style="background:var(--accent-2)"></i>SQL</span>
+          <span><i style="background:#818cf8"></i>Jupyter</span>
+          <span><i style="background:#475569"></i>Other</span>
+        </div>
+        <div class="gh-mini-stats" id="ghMiniStats">
+          <div><span class="gh-num" id="ghRepoCount">—</span><span>Public Repos</span></div>
+          <div><span class="gh-num" id="ghFollowers">—</span><span>Followers</span></div>
+        </div>
+      </div>
+      <div class="gh-card reveal-right spotlight">
+        <div class="gh-card-head"><h4>Contribution Activity</h4><span class="gh-live" id="ghHeatStatus">live</span></div>
+        <div class="heatmap" id="heatmap"></div>
+      </div>
+    </div>
+    <a href="https://github.com/vimal9125" target="_blank" rel="noopener" class="btn btn-outline gh-link reveal center">View GitHub Profile</a>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section class="section" id="education">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <span class="section-index">09</span>
+      <div class="section-head-text"><p class="eyebrow">Academics</p><h2 class="section-title">Education</h2></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-head">
+            <div>
+              <h3>B.C.A. — Data Science &amp; Artificial Intelligence</h3>
+              <p class="tl-org">Shri Ramswaroop Memorial University</p>
+            </div>
+            <span class="tl-date">2023 – 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <span class="section-index">10</span>
+      <div class="section-head-text"><p class="eyebrow">Let's Talk</p><h2 class="section-title">Get in Touch</h2></div>
+    </div>
+    <div class="contact-card reveal-zoom spotlight">
+      <div class="contact-grid">
+        <a class="contact-item" href="mailto:vimalyadav4732@gmail.com">
+          <span class="ci-label">Email</span><span class="ci-value">vimalyadav4732@gmail.com</span>
+        </a>
+        <a class="contact-item" href="tel:+917007670120">
+          <span class="ci-label">Phone</span><span class="ci-value">+91 7007670120</span>
+        </a>
+        <a class="contact-item" href="https://linkedin.com/in/vimal-yadav-7098962a7" target="_blank" rel="noopener">
+          <span class="ci-label">LinkedIn</span><span class="ci-value">vimal-yadav-7098962a7</span>
+        </a>
+        <a class="contact-item" href="https://github.com/vimal9125" target="_blank" rel="noopener">
+          <span class="ci-label">GitHub</span><span class="ci-value">vimal9125</span>
+        </a>
+        <div class="contact-item static">
+          <span class="ci-label">Location</span><span class="ci-value">Lucknow, India</span>
+        </div>
+        <a class="contact-item" href="resume.pdf" download id="resumeBtn2">
+          <span class="ci-label">Resume</span><span class="ci-value">Download PDF ↓</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <p>Made with <span class="heart">♥</span> by Vimal Yadav</p>
+  <button class="back-top" id="backTop">↑ Top</button>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
